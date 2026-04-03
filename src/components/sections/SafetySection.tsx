@@ -97,13 +97,13 @@ export default function SafetySection({
             </div>
 
             {/* Card 2 */}
-            <div className="safety-float-card" style={{
+            <div className="safety-float-card safety-card-2" style={{
               position: 'absolute', top: 190, right: 0,
               background: '#ffffff', borderRadius: 16,
               boxShadow: '0 4px 24px rgba(0,0,0,0.09)',
               padding: '14px 18px', display: 'flex', alignItems: 'flex-start',
               gap: 12, maxWidth: 248, zIndex: 2,
-            }} className="safety-card-2">
+            }}>
               <div style={{ flexShrink: 0, width: 36, height: 36, background: t.iconBg, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                   <rect x="5" y="9" width="10" height="8" rx="2" stroke={t.iconStroke} strokeWidth="1.6" fill="none"/>
