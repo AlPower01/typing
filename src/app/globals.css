@@ -1,26 +1,48 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Design tokens */
+  --color-blue-900: #2A4365;
+  --color-blue-500: #3082CF;
+  --color-blue-300: #64B4ED;
+  --color-blue-200: #BEE3F8;
+  --color-blue-100: #DAF0FB;
+  --color-blue-50:  #F0F9FD;
+  --color-yellow-700: #E5BA3F;
+  --color-yellow-500: #FFCF46;
+  --color-green-300: #84DC91;
+  --color-green-200: #D7F4DB;
+  --color-orange-300: #FAB889;
+  --color-orange-200: #FCD9C0;
+  --color-text-black: #212731;
+  --color-grey-900: #363C44;
+  --color-grey-700: #63676E;
+  --color-grey-500: #909398;
+  --color-grey-100: #EAEAEC;
+  --font-nunito: 'Nunito', sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Nunito', sans-serif;
+  color: #212731;
+  background: #F0F9FD;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
 }
