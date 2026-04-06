@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import HeroBanner from '@/components/sections/HeroBanner'
 import StatsBar from '@/components/sections/StatsBar'
 import FeaturesSection from '@/components/sections/FeaturesSection'
@@ -96,52 +95,6 @@ const faqItems = [
 export default function IndividualPage() {
   return (
     <>
-      <style>{`
-        /* Pre-footer CTA band */
-        .indiv-prefooter {
-          background: #F0F9FD;
-          border-top: 1px solid #BEE3F8;
-          border-bottom: 1px solid #BEE3F8;
-          padding: 80px 24px;
-          text-align: center;
-        }
-        .indiv-prefooter-h2 {
-          font-size: 46px;
-          font-weight: 700;
-          line-height: 1.15;
-          color: #212731;
-          margin: 0 0 24px;
-          max-width: 720px;
-          margin-left: auto;
-          margin-right: auto;
-        }
-        .indiv-prefooter-cta {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          background: #DAF0FB;
-          color: #2C5281;
-          border: 1px solid #64B4ED;
-          border-radius: 18px;
-          padding: 16px 40px;
-          font-size: 18px;
-          font-weight: 900;
-          text-transform: uppercase;
-          letter-spacing: 0.04em;
-          text-decoration: none;
-          box-shadow: 0 6px 0 #90CEF4;
-          transition: transform 0.08s ease, box-shadow 0.08s ease;
-        }
-        .indiv-prefooter-cta:hover  { transform: translateY(3px); box-shadow: 0 3px 0 #90CEF4; }
-        .indiv-prefooter-cta:active { transform: translateY(6px); box-shadow: 0 0 0 #90CEF4; }
-        @media (max-width: 768px) {
-          .indiv-prefooter-h2 { font-size: 34px !important; }
-        }
-        @media (max-width: 480px) {
-          .indiv-prefooter-h2 { font-size: 26px !important; }
-        }
-      `}</style>
-
       <div style={{ background: '#ffffff' }}>
 
         {/* ── Hero ────────────────────────────────────────────────── */}
@@ -188,26 +141,11 @@ export default function IndividualPage() {
         <SafetySection
           theme="blue"
           description="Your privacy matters. Typing.com is designed so you can practice freely without sharing personal information — your data is always yours."
-          bullets={[
-            'No personal information required to start',
-            'All data is TLS encrypted in transit',
-            'We never share or sell your data, ever',
-          ]}
         />
 
 
         {/* ── FAQ ─────────────────────────────────────────────────── */}
         <FaqSection items={faqItems} />
-
-        {/* ── Pre-footer CTA band ──────────────────────────────────── */}
-        <div className="indiv-prefooter">
-          <h2 className="indiv-prefooter-h2">
-            Typing Practice That Moves at Your Pace
-          </h2>
-          <Link href="/signup" className="indiv-prefooter-cta">
-            Start Typing Today »
-          </Link>
-        </div>
 
         {/* ── Footer ──────────────────────────────────────────────── */}
         <SiteFooter tagline="Free Typing Practice for Everyone — Beginner to Advanced" />

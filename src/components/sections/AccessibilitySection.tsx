@@ -74,7 +74,7 @@ export default function AccessibilitySection({ cards }: AccessibilitySectionProp
 
   return (
     <section id="accessibility" style={{ padding: '88px 0 80px', background: '#ffffff', overflow: 'hidden' }}>
-      <div style={{ maxWidth: 1368, margin: '0 auto', padding: '0 48px' }} className="access-wrap">
+      <div style={{ maxWidth: 1368, margin: '0 auto', padding: '0 36px' }} className="access-wrap">
         <div style={{ marginBottom: 52 }}>
           <span style={{
             display: 'inline-flex', alignItems: 'center', padding: '8px 20px',
@@ -106,7 +106,7 @@ export default function AccessibilitySection({ cards }: AccessibilitySectionProp
             style={{
               display: 'flex',
               gap: 24,
-              paddingLeft: 'max(48px, calc((100vw - 1368px) / 2 + 48px))',
+              paddingLeft: 'max(36px, calc((100vw - 1368px) / 2 + 36px))',
               transition: 'transform 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
               willChange: 'transform',
             }}
@@ -117,7 +117,7 @@ export default function AccessibilitySection({ cards }: AccessibilitySectionProp
                 className="access-card-item"
                 style={{
                   flexShrink: 0,
-                  width: 'calc((100vw - max(48px, calc((100vw - 1368px) / 2 + 48px)) - 132px) / 3)',
+                  width: 'calc((100vw - max(36px, calc((100vw - 1368px) / 2 + 36px)) - 132px) / 3)',
                   background: '#f7fdff',
                   border: '1px solid #64b4ed',
                   borderRadius: 24,
@@ -143,7 +143,7 @@ export default function AccessibilitySection({ cards }: AccessibilitySectionProp
       </div>
 
       {/* Nav */}
-      <div style={{ maxWidth: 1368, margin: '0 auto', padding: '0 48px' }}>
+      <div style={{ maxWidth: 1368, margin: '0 auto', padding: '0 36px' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', marginTop: 32 }}>
           <div className="wcag-mobile" style={{ display: 'none' }}>
             <WcagBadge />

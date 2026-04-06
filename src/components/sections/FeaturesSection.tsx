@@ -81,7 +81,7 @@ export default function FeaturesSection({ variant, theme = 'blue', badge, title,
       } as React.CSSProperties}
       className="features-section"
     >
-      <div style={{ maxWidth: 1368, margin: '0 auto', padding: '0 24px' }}>
+      <div style={{ maxWidth: 1368, margin: '0 auto', padding: '0 36px' }}>
 
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
@@ -424,7 +424,7 @@ export default function FeaturesSection({ variant, theme = 'blue', badge, title,
               >
                 <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                   <Image
-                    src="/images/feature_dummy.png"
+                    src={panel.imgSrc.startsWith('/') ? panel.imgSrc : `/${panel.imgSrc}`}
                     alt={panel.imgAlt}
                     fill
                     style={{

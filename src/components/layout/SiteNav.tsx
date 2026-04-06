@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -15,6 +15,7 @@ export default function SiteNav() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     if (isHome) return
@@ -85,7 +86,7 @@ export default function SiteNav() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: '0 24px',
+          padding: '0 36px',
         }}
         role="navigation"
         aria-label="Main navigation"
@@ -141,7 +142,17 @@ export default function SiteNav() {
           {/* Persona dropdown - hidden on home */}
           {isInnerPage && (
             <>
-              <div className="persona-wrap" style={{ position: 'relative', flexShrink: 0 }}>
+              <div
+                className="persona-wrap"
+                style={{ position: 'relative', flexShrink: 0 }}
+                onMouseEnter={() => {
+                  if (closeTimer.current) clearTimeout(closeTimer.current)
+                  setDropdownOpen(true)
+                }}
+                onMouseLeave={() => {
+                  closeTimer.current = setTimeout(() => setDropdownOpen(false), 120)
+                }}
+              >
                 <button
                   aria-expanded={dropdownOpen}
                   aria-haspopup="true"

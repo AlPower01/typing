@@ -10,7 +10,7 @@ interface StatsBarProps {
 
 export default function StatsBar({ tagline, stats }: StatsBarProps) {
   return (
-    <section aria-label="Key statistics" style={{ maxWidth: 1368, margin: '0 auto', width: '100%', padding: '0 24px' }}>
+    <section aria-label="Key statistics" style={{ maxWidth: 1368, margin: '0 auto', width: '100%', padding: '0 36px' }}>
       <p style={{ textAlign: 'center', fontSize: 20, fontWeight: 500, lineHeight: '34px', color: '#212731', paddingTop: 20, marginBottom: 4 }}>
         {tagline}
       </p>

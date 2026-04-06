@@ -64,12 +64,21 @@ export default function CurriculumSection({ sections }: CurriculumSectionProps) 
         style={{ position: 'absolute', bottom: 0, right: 0, width: 340, height: 'auto', opacity: 0.25, pointerEvents: 'none' }}
       />
 
-      <div style={{ maxWidth: 1368, margin: '0 auto', padding: '0 24px' }}>
+      <div style={{ maxWidth: 1368, margin: '0 auto', padding: '0 36px' }}>
         {/* Header */}
         <div
           style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 16, gap: 24 }}
           className="curriculum-header"
         >
+          <div>
+            <span style={{
+              display: 'inline-flex', alignItems: 'center',
+              background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(144,206,244,0.4)', borderRadius: 999,
+              padding: '7px 18px', color: '#90CEF4', fontWeight: 800, fontSize: 13,
+              textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: 16,
+            }}>
+              Curriculum
+            </span>
           <h2
             id="curriculum-title"
             style={{ fontSize: 38, fontWeight: 700, lineHeight: 1.2, color: '#ffffff', maxWidth: 720, marginBottom: 24 }}
@@ -78,6 +87,7 @@ export default function CurriculumSection({ sections }: CurriculumSectionProps) 
             Over <span style={{ color: '#64B4ED' }}>10,000</span> lessons with over{' '}
             <span style={{ color: '#64B4ED' }}>500,000</span> lessons created by educators like you.
           </h2>
+          </div>
           <Image
             src="/images/bundle.png"
             alt=""
@@ -99,9 +109,24 @@ export default function CurriculumSection({ sections }: CurriculumSectionProps) 
             <ul
               role="tablist"
               aria-label="Curriculum sections"
-              style={{ listStyle: 'none', margin: 0, padding: 0, borderLeft: '1px solid rgba(144,206,244,0.3)' }}
+              style={{ listStyle: 'none', margin: 0, padding: 0, borderLeft: '1px solid rgba(144,206,244,0.3)', position: 'relative' }}
               className="curriculum-nav"
             >
+              {/* Single sliding bar */}
+              <span
+                aria-hidden
+                style={{
+                  position: 'absolute',
+                  left: -1,
+                  top: activeSection * 52,
+                  width: 10,
+                  height: 52,
+                  background: '#3082CF',
+                  borderRadius: '0 4px 4px 0',
+                  transition: 'top 0.22s cubic-bezier(0.4, 0, 0.2, 1)',
+                  zIndex: 1,
+                }}
+              />
               {sections.map((section, i) => (
                 <li
                   key={section.id}
@@ -120,25 +145,11 @@ export default function CurriculumSection({ sections }: CurriculumSectionProps) 
                     color: activeSection === i ? '#ffffff' : '#F5FDFF',
                     cursor: 'pointer',
                     borderRadius: '0 4px 4px 0',
-                    transition: 'background 0.15s',
+                    transition: 'color 0.15s',
                     userSelect: 'none',
                   }}
                   className={`curriculum-nav-item ${activeSection === i ? 'is-active' : ''}`}
                 >
-                  {activeSection === i && (
-                    <span
-                      aria-hidden
-                      style={{
-                        position: 'absolute',
-                        left: -1,
-                        top: 0,
-                        bottom: 0,
-                        width: 10,
-                        background: '#3082CF',
-                        borderRadius: '0 4px 4px 0',
-                      }}
-                    />
-                  )}
                   {section.label}
                 </li>
               ))}

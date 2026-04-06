@@ -16,9 +16,9 @@ export default function HomeFooter() {
       <style>{`
         .home-footer {
           max-width: 1368px;
-          margin: 48px auto 0;
-          padding: 18px 24px;
-          border-top: 1px solid rgba(0, 0, 0, 0.08);
+          margin: 0 auto;
+          padding: 14px 36px;
+          border-top: 1px solid rgba(0,0,0,0.08);
           display: flex;
           flex-direction: row;
           align-items: center;
@@ -89,7 +89,14 @@ export default function HomeFooter() {
           />
           <span>EN ∨</span>
           <span className="sep">|</span>
-          <span>Brought to you by <strong>Teaching.com</strong></span>
+          <span>Brought to you by</span>
+          <Image
+            src="/images/teaching_logo1.svg"
+            alt="Teaching.com"
+            width={90}
+            height={20}
+            style={{ height: 18, width: 'auto', display: 'inline-block', verticalAlign: 'middle', filter: 'brightness(0) opacity(0.65)' }}
+          />
         </div>
       </footer>
     </>

@@ -98,7 +98,7 @@ export default function RosteringSection() {
         padding: '88px 0 80px',
       }}
     >
-      <div style={{ maxWidth: 1368, margin: '0 auto', padding: '0 48px' }} className="rostering-wrap">
+      <div style={{ maxWidth: 1368, margin: '0 auto', padding: '0 36px' }} className="rostering-wrap">
 
         {/* ── Header ──────────────────────────────────────────────────────── */}
         <div style={{ marginBottom: 56, textAlign: 'center' }}>

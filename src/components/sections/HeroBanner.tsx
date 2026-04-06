@@ -30,7 +30,7 @@ export default function HeroBanner({
   heroAlt = '',
 }: HeroBannerProps) {
   return (
-    <div style={{ maxWidth: 1368, margin: '0 auto', padding: '5px 24px 64px' }}>
+    <div style={{ maxWidth: 1368, margin: '0 auto', padding: '5px 36px 64px' }}>
       <section
         aria-label="Hero banner"
         style={{

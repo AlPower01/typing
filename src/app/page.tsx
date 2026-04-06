@@ -49,7 +49,12 @@ export default function HomePage() {
           background: #F0F9FD;
           position: relative;
           overflow: hidden;
-          min-height: 100vh;
+          min-height: calc(100vh - 90px);
+          display: flex;
+          flex-direction: column;
+        }
+        .home-page-content {
+          flex: 1;
         }
 
         /* Decorative squircles */
@@ -80,7 +85,7 @@ export default function HomePage() {
           z-index: 1;
           max-width: 1368px;
           margin: 0 auto;
-          padding: 40px 24px 16px;
+          padding: 40px 36px 16px;
           text-align: center;
         }
         .home-badge {
@@ -125,7 +130,7 @@ export default function HomePage() {
           z-index: 1;
           max-width: 1368px;
           margin: 0 auto;
-          padding: 0 24px;
+          padding: 0 36px;
         }
         .home-cards {
           display: grid;
@@ -191,8 +196,10 @@ export default function HomePage() {
         }
         /* Card body */
         .persona-card-body {
-          padding: 0 24px 28px;
+          padding: 0 36px 32px;
           text-align: center;
+          width: 100%;
+          box-sizing: border-box;
         }
         .persona-card-img {
           display: block;
@@ -269,6 +276,7 @@ export default function HomePage() {
           className="squircle-right"
         />
 
+        <div className="home-page-content">
         {/* Hero */}
         <section className="home-hero">
           <div className="home-badge">38,916,000 students and counting 🎉</div>
@@ -314,6 +322,8 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+        </div>
+
         </div>
 
         {/* Simple homepage footer */}

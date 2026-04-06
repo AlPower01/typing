@@ -32,7 +32,7 @@ const teacherTabs = [
 const teacherPanels = [
   {
     title: 'Get Started in Minutes, Not Hours',
-    imgSrc: 'images/feature_zoom.png',
+    imgSrc: 'images/edu_features_img.png',
     imgAlt: 'Easy class rostering interface',
     accordionItems: [
       { label: 'SSO & Rostering Integrations', text: 'Sign in with Google, Microsoft, Clever, or Classlink. Students and classes sync automatically—no spreadsheets, no manual data entry.' },
@@ -43,7 +43,7 @@ const teacherPanels = [
   },
   {
     title: 'Manage Classes with Precision & Flexibility',
-    imgSrc: 'images/features_carousel.png',
+    imgSrc: 'images/edu_features_img.png',
     imgAlt: 'Classroom control dashboard',
     accordionItems: [
       { label: 'Individual Class Dashboards', text: 'View enrolled students with last login, typing time, average speed, and accuracy. Access assignments, run reports, and review weekly scoreboards—all from one screen.' },
@@ -55,7 +55,7 @@ const teacherPanels = [
   },
   {
     title: 'Assign Exactly What Students Need',
-    imgSrc: 'images/features_carousel.png',
+    imgSrc: 'images/edu_features_img.png',
     imgAlt: 'Assignment creation interface',
     accordionItems: [
       { label: 'Assignment Builder', text: 'Create assignments from Core Curriculum lessons, Typing Tests, Games, or Custom Lessons. Assign to entire grades or specific classes. Add titles, descriptions, and optional due dates.' },
@@ -66,7 +66,7 @@ const teacherPanels = [
   },
   {
     title: 'See Student Activity as It Happens',
-    imgSrc: 'images/features_carousel.png',
+    imgSrc: 'images/edu_features_img.png',
     imgAlt: 'Real-time monitoring dashboard',
     accordionItems: [
       { label: 'Live Activity Dashboard', text: 'Monitor real-time student activity over the last 30 minutes across all classes or filter by a specific class. See exactly who\'s actively typing and what they\'re working on.' },
@@ -76,7 +76,7 @@ const teacherPanels = [
   },
   {
     title: 'Generate Reports That Actually Answer Your Questions',
-    imgSrc: 'images/features_carousel.png',
+    imgSrc: 'images/edu_features_img.png',
     imgAlt: 'Exportable reports dashboard',
     accordionItems: [
       { label: 'Test Reports', text: 'Test Improvement Summary and Test Activity Details show progress over time and identify trends in performance.' },
@@ -88,7 +88,7 @@ const teacherPanels = [
   },
   {
     title: 'Build Lessons That Match Your Instruction',
-    imgSrc: 'images/features_carousel.png',
+    imgSrc: 'images/edu_features_img.png',
     imgAlt: 'Custom lesson creation interface',
     accordionItems: [
       { label: 'Over 500,000 Created by Educators', text: 'Teachers on the platform have built an extensive library of custom lesson screens, which they can optionally share with other educators.' },
@@ -100,7 +100,7 @@ const teacherPanels = [
   },
   {
     title: 'Grading That Works Automatically',
-    imgSrc: 'images/features_carousel.png',
+    imgSrc: 'images/edu_features_img.png',
     imgAlt: 'Auto-grading configuration',
     accordionItems: [
       { label: 'Customizable Grading Thresholds', text: 'Set benchmarks by letter grades or points. Define minimum speed and accuracy requirements to earn stars on each lesson.' },
@@ -111,7 +111,7 @@ const teacherPanels = [
   },
   {
     title: 'Scale Across Schools & Districts with Confidence',
-    imgSrc: 'images/features_carousel.png',
+    imgSrc: 'images/edu_features_img.png',
     imgAlt: 'District-wide management dashboard',
     accordionItems: [
       { label: 'Multi-Role Dashboard', text: 'District admins and school admins have dashboards that provide visibility across multiple classes, schools, or the entire district.' },
@@ -169,10 +169,20 @@ const accessibilityCards = [
 ]
 
 const plusRows = [
-  { feature: 'Grade-based lessons/tests/games, SSO, class settings', free: true, plus: true },
-  { feature: 'Ad-free, Beyond Typing curriculum, assignments, real-time monitoring', free: false, plus: true },
-  { feature: 'Auto grading, custom benchmarks, daily goals, IEP support', free: false, plus: true },
-  { feature: 'Unlimited data retention (Free: 70 days), account mgmt, priority support', free: false, plus: true },
+  { feature: 'Grade-based typing lessons, tests, and games',                                                                          free: true,  plus: true },
+  { feature: 'SSO with Google, Microsoft, Clever, and ClassLink',                                                                     free: true,  plus: true },
+  { feature: 'Classroom-level settings',                                                                                              free: true,  plus: true },
+  { feature: '100% ad-free experience',                                                                                               free: false, plus: true },
+  { feature: 'Beyond Typing curriculum (digital citizenship, AI literacy, creative writing, coding, test prep, career prep)',         free: false, plus: true },
+  { feature: 'Assign lessons, tests, and games',                                                                                      free: false, plus: true },
+  { feature: 'Real-time student activity monitoring',                                                                                 free: false, plus: true },
+  { feature: 'Auto grading with customizable thresholds',                                                                             free: false, plus: true },
+  { feature: 'Customized benchmarking',                                                                                               free: false, plus: true },
+  { feature: 'Daily practice time goals',                                                                                             free: false, plus: true },
+  { feature: 'Individual student settings (IEP support)',                                                                             free: false, plus: true },
+  { feature: 'Unlimited data retention (Free: 70 days)',                                                                              free: false, plus: true },
+  { feature: 'Dedicated account management',                                                                                          free: false, plus: true },
+  { feature: 'Priority phone and email support',                                                                                      free: false, plus: true },
 ]
 
 const faqItems = [

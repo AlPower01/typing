@@ -40,7 +40,7 @@ export default function SiteFooter({ tagline = 'Typing \u0026 Beyond for Classro
         style={{ position: 'absolute', right: -140, bottom: 0, width: 600, height: 'auto', opacity: 0.5, pointerEvents: 'none', zIndex: 0 }}
       />
 
-      <div style={{ maxWidth: 1368, margin: '0 auto', padding: '0 48px', position: 'relative', zIndex: 1 }} className="footer-wrap">
+      <div style={{ maxWidth: 1368, margin: '0 auto', padding: '0 36px', position: 'relative', zIndex: 1 }} className="footer-wrap">
         {/* Top */}
         <div style={{ padding: '56px 0 48px', display: 'flex', flexDirection: 'column', gap: 24 }}>
           <Image src="/images/typing_appicon.svg" alt="Typing.com" width={64} height={64} style={{ display: 'block' }} />

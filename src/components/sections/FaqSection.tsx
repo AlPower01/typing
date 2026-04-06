@@ -20,7 +20,7 @@ export default function FaqSection({ items }: FaqSectionProps) {
 
   return (
     <section id="faq" style={{ background: '#ffffff', padding: '88px 0 96px' }} className="faq-section">
-      <div style={{ maxWidth: 1368, margin: '0 auto', padding: '0 48px' }} className="faq-wrap">
+      <div style={{ maxWidth: 1368, margin: '0 auto', padding: '0 36px' }} className="faq-wrap">
         <h2 style={{
           fontSize: 38, fontWeight: 700, lineHeight: 1.2, color: '#212731',
           textAlign: 'center', marginBottom: 48,
@@ -96,7 +96,7 @@ export default function FaqSection({ items }: FaqSectionProps) {
 
         @media (max-width: 860px) {
           .faq-section { padding: 64px 0 72px !important; }
-          .faq-wrap { padding: 0 32px !important; }
+          .faq-wrap { padding: 0 24px !important; }
           .faq-title { font-size: 30px !important; margin-bottom: 36px !important; }
         }
         @media (max-width: 600px) {

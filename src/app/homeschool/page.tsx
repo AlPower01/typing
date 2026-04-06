@@ -31,7 +31,7 @@ const instructorTabs = [
 const instructorPanels = [
   {
     title: 'Add Your Students & Start Typing',
-    imgSrc: 'images/features_carousel.png',
+    imgSrc: 'images/edu_features_img.png',
     imgAlt: 'Family account setup dashboard',
     accordionItems: [
       { label: 'Quick Student Creation', text: 'Add students one at a time or create multiple at once. No rostering systems, no spreadsheets—just names and you\'re ready.' },
@@ -42,7 +42,7 @@ const instructorPanels = [
   },
   {
     title: 'See What They\'ve Accomplished at a Glance',
-    imgSrc: 'images/features_carousel.png',
+    imgSrc: 'images/edu_features_img.png',
     imgAlt: 'Visual progress tracking dashboard',
     accordionItems: [
       { label: 'Student Dashboard', text: 'View each student\'s overall typing time, lessons completed, average speed and accuracy, and earned achievements all in one place.' },
@@ -53,7 +53,7 @@ const instructorPanels = [
   },
   {
     title: 'Set Daily Expectations & Build Habits',
-    imgSrc: 'images/features_carousel.png',
+    imgSrc: 'images/edu_features_img.png',
     imgAlt: 'Daily goal and streak tracking interface',
     accordionItems: [
       { label: 'Daily Typing Goals', text: 'Set a required number of daily typing minutes for each student. A clear daily goal timer shows them exactly how much time remains.' },
@@ -64,7 +64,7 @@ const instructorPanels = [
   },
   {
     title: 'Create Lessons for Your Unique Curriculum',
-    imgSrc: 'images/features_carousel.png',
+    imgSrc: 'images/edu_features_img.png',
     imgAlt: 'Custom lesson creation interface',
     accordionItems: [
       { label: 'Your Content, Your Way', text: 'Build custom typing lessons using vocabulary from your history unit, spelling words, science terms, Bible verses, or any content you want them to practice.' },
@@ -75,7 +75,7 @@ const instructorPanels = [
   },
   {
     title: 'Simple Reports When You Need Them',
-    imgSrc: 'images/features_carousel.png',
+    imgSrc: 'images/edu_features_img.png',
     imgAlt: 'Printable progress report',
     accordionItems: [
       { label: 'Activity Summary', text: 'See total typing time, lessons completed, and average speed and accuracy for any date range—perfect for weekly reviews or end-of-semester records.' },
@@ -86,7 +86,7 @@ const instructorPanels = [
   },
   {
     title: 'Adjust Settings to Fit Your Family',
-    imgSrc: 'images/features_carousel.png',
+    imgSrc: 'images/edu_features_img.png',
     imgAlt: 'Flexible learning controls panel',
     accordionItems: [
       { label: 'Game & Lesson Control', text: 'Enable or disable specific typing games and lessons for each student. Turn off content that doesn\'t fit your curriculum or values.' },
@@ -117,10 +117,20 @@ const curriculumSections = sharedCurriculumSections
 // ─── PLUS rows ────────────────────────────────────────────────────────────────
 
 const plusRows = [
-  { feature: 'Grade-based lessons/tests/games, SSO, class settings',                    free: true,  plus: true },
-  { feature: 'Ad-free, Beyond Typing curriculum, assignments, real-time monitoring',     free: false, plus: true },
-  { feature: 'Auto grading, custom benchmarks, daily goals, IEP support',               free: false, plus: true },
-  { feature: 'Unlimited data retention (Free: 70 days), account mgmt, priority support', free: false, plus: true },
+  { feature: 'Grade-based typing lessons, tests, and games',                                                                          free: true,  plus: true },
+  { feature: 'SSO with Google, Microsoft, Clever, and ClassLink',                                                                     free: true,  plus: true },
+  { feature: 'Classroom-level settings',                                                                                              free: true,  plus: true },
+  { feature: '100% ad-free experience',                                                                                               free: false, plus: true },
+  { feature: 'Beyond Typing curriculum (digital citizenship, AI literacy, creative writing, coding, test prep, career prep)',         free: false, plus: true },
+  { feature: 'Assign lessons, tests, and games',                                                                                      free: false, plus: true },
+  { feature: 'Real-time student activity monitoring',                                                                                 free: false, plus: true },
+  { feature: 'Auto grading with customizable thresholds',                                                                             free: false, plus: true },
+  { feature: 'Customized benchmarking',                                                                                               free: false, plus: true },
+  { feature: 'Daily practice time goals',                                                                                             free: false, plus: true },
+  { feature: 'Individual student settings (IEP support)',                                                                             free: false, plus: true },
+  { feature: 'Unlimited data retention (Free: 70 days)',                                                                              free: false, plus: true },
+  { feature: 'Dedicated account management',                                                                                          free: false, plus: true },
+  { feature: 'Priority phone and email support',                                                                                      free: false, plus: true },
 ]
 
 // ─── Accessibility ────────────────────────────────────────────────────────────
@@ -294,11 +304,6 @@ export default function HomeschoolPage() {
         <SafetySection
           theme="green"
           description="Typing.com is built for schools and families, which means privacy isn't an afterthought — it's the foundation. Students never share personal data."
-          bullets={[
-            'Students never need an email address',
-            'All PII is managed at the parent or admin level',
-            'We never share or sell your data, ever',
-          ]}
         />
 
         {/* ── FAQ ───────────────────────────────────────────────────── */}

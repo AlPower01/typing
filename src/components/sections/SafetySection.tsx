@@ -1,8 +1,8 @@
+import Link from 'next/link'
 import Image from 'next/image'
 
 interface SafetySectionProps {
   description?: string
-  bullets?: string[]
   theme?: 'orange' | 'blue' | 'green'
 }
 
@@ -42,9 +42,31 @@ const THEME = {
   },
 }
 
+const cards = [
+  {
+    label: 'COPPA Compliant',
+    text: "Typing.com complies with the Children's Online Privacy Protection Act. Learners under 13 can use the platform with parental consent.",
+  },
+  {
+    label: 'No Ads for PLUS Users',
+    text: 'PLUS accounts are 100% ad-free. Free accounts display age-appropriate ads that never target users based on personal data.',
+  },
+  {
+    label: 'No Data Sales',
+    text: 'Typing.com never sells or shares personal data with third parties for advertising or commercial purposes.',
+  },
+  {
+    label: 'Minimal Data Collection',
+    text: "Accounts require only a username and password - no email required. The platform collects only what's necessary to deliver the service.",
+  },
+  {
+    label: 'Data Deletion on Request',
+    text: 'Parents and individuals can request deletion of data at any time by contacting support, or delete their own account from account settings.',
+  },
+]
+
 export default function SafetySection({
-  description = "Typing.com is built for schools and families, which means privacy and compliance aren\u2019t afterthoughts \u2014 they\u2019re the foundation.",
-  bullets = ['Students never need an email', 'All PII is managed at the administration level', 'Data syncs automatically from your SIS'],
+  description = "Typing.com is built for families, which means privacy isn't an afterthought - it's the foundation. We never sell data. We never share it with advertisers.",
   theme = 'orange',
 }: SafetySectionProps) {
   const t = THEME[theme]
@@ -55,11 +77,11 @@ export default function SafetySection({
       style={{ background: t.sectionBg, borderTop: t.borderTop, borderBottom: t.borderBottom, padding: '88px 0 80px' }}
       className="safety-section"
     >
-      <div style={{ maxWidth: 1368, margin: '0 auto', padding: '0 48px' }} className="safety-wrap">
+      <div style={{ maxWidth: 1368, margin: '0 auto', padding: '0 36px' }} className="safety-wrap">
         <div style={{ display: 'flex', alignItems: 'center', gap: 72 }} className="safety-inner">
 
           {/* ── Left illustration ─────────────────────────────────────────── */}
-          <div style={{ flex: '0 0 540px', position: 'relative', height: 460 }} className="safety-left">
+          <div style={{ flex: '0 0 480px', position: 'relative', height: 500 }} className="safety-left">
             <Image
               src="/images/shield_safety.svg"
               alt=""
@@ -98,7 +120,7 @@ export default function SafetySection({
 
             {/* Card 2 */}
             <div className="safety-float-card safety-card-2" style={{
-              position: 'absolute', top: 190, right: 0,
+              position: 'absolute', top: 200, right: 0,
               background: '#ffffff', borderRadius: 16,
               boxShadow: '0 4px 24px rgba(0,0,0,0.09)',
               padding: '14px 18px', display: 'flex', alignItems: 'flex-start',
@@ -118,7 +140,7 @@ export default function SafetySection({
 
             {/* Card 3 */}
             <div className="safety-float-card" style={{
-              position: 'absolute', top: 300, left: 10,
+              position: 'absolute', top: 330, left: 10,
               background: '#ffffff', borderRadius: 16,
               boxShadow: '0 4px 24px rgba(0,0,0,0.09)',
               padding: '14px 18px', display: 'flex', alignItems: 'flex-start',
@@ -136,31 +158,54 @@ export default function SafetySection({
             </div>
           </div>
 
-          {/* ── Right text ────────────────────────────────────────────────── */}
+          {/* ── Right: header + cards ─────────────────────────────────────── */}
           <div style={{ flex: 1, minWidth: 0 }}>
             <span style={{
               display: 'inline-flex', alignItems: 'center',
               background: t.badgeBg, border: `1px solid ${t.badgeBorder}`, borderRadius: 999,
-              padding: '10px 24px', color: t.badgeColor, fontWeight: 800, fontSize: 14,
-              textTransform: 'uppercase', letterSpacing: '0.03em', marginBottom: 24,
+              padding: '8px 20px', color: t.badgeColor, fontWeight: 800, fontSize: 13,
+              textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: 16,
             }}>
               Safety &amp; Privacy
             </span>
-            <h2 style={{ fontSize: 38, fontWeight: 700, lineHeight: 1.2, color: '#212731', marginBottom: 20 }} className="safety-title">
+            <h2 style={{ fontSize: 34, fontWeight: 800, lineHeight: 1.2, color: '#212731', marginBottom: 12 }} className="safety-title">
               Your data stays protected. Always.
             </h2>
-            <p style={{ fontSize: 20, fontWeight: 500, lineHeight: 1.7, color: '#63676e', marginBottom: 24 }} className="safety-sub">
+            <p style={{ fontSize: 16, fontWeight: 500, lineHeight: 1.7, color: '#63676e', marginBottom: 24 }} className="safety-sub">
               {description}
             </p>
-            <ul style={{ listStyle: 'disc', paddingLeft: 22, display: 'flex', flexDirection: 'column', gap: 8 }}>
-              {bullets.map(item => (
-                <li key={item} style={{ fontSize: 16, fontWeight: 500, color: '#63676e', lineHeight: 1.6 }}>{item}</li>
+
+            {/* Bullet list */}
+            <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {cards.map((card) => (
+                <li key={card.label} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+                  <span style={{ color: t.iconStroke, fontWeight: 700, flexShrink: 0, marginTop: 2, fontSize: 16 }}>→</span>
+                  <p style={{ fontSize: 15, fontWeight: 500, color: '#3d4451', lineHeight: 1.65, margin: 0 }}>
+                    <strong style={{ fontWeight: 700, color: '#212731' }}>{card.label}:</strong>{' '}
+                    {card.text}
+                  </p>
+                </li>
               ))}
             </ul>
+
+            {/* Privacy policy text link */}
+            <Link
+              href="/privacy"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: 6,
+                marginTop: 24,
+                fontSize: 15, fontWeight: 700,
+                color: t.badgeColor,
+                textDecoration: 'underline',
+                textUnderlineOffset: 3,
+              }}
+            >
+              Read our full Privacy Policy →
+            </Link>
           </div>
         </div>
 
-        {/* ── Badges ───────────────────────────────────────────────────────── */}
+        {/* ── Trust badges ─────────────────────────────────────────────────── */}
         <div style={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           gap: 56, flexWrap: 'wrap', marginTop: 72, paddingTop: 52,
@@ -171,11 +216,11 @@ export default function SafetySection({
             { src: '/images/pentest1.png', alt: 'Penetration Test Verified' },
             { src: '/images/edtech1.png',  alt: '1EdTech Certified' },
             { src: '/images/google1.png',  alt: 'Google for Education Partner' },
-          ].map(badge => (
+          ].map(b => (
             <Image
-              key={badge.src}
-              src={badge.src}
-              alt={badge.alt}
+              key={b.src}
+              src={b.src}
+              alt={b.alt}
               width={140}
               height={88}
               style={{ height: 88, width: 'auto', objectFit: 'contain', display: 'block' }}
@@ -186,24 +231,26 @@ export default function SafetySection({
       </div>
 
       <style>{`
-        @media (max-width: 1024px) {
-          .safety-left  { flex: 0 0 460px !important; }
+        @media (max-width: 1100px) {
+          .safety-left  { flex: 0 0 400px !important; }
           .safety-inner { gap: 48px !important; }
         }
         @media (max-width: 860px) {
           .safety-section { padding: 64px 0 60px !important; }
-          .safety-wrap    { padding: 0 32px !important; }
+          .safety-wrap    { padding: 0 24px !important; }
           .safety-inner   { flex-direction: column !important; gap: 0 !important; }
           .safety-left    { display: none !important; }
+          .safety-title   { font-size: 28px !important; }
           .safety-badges  { gap: 36px !important; margin-top: 52px !important; }
           .safety-badge-img { height: 70px !important; }
         }
         @media (max-width: 600px) {
           .safety-section { padding: 56px 0 52px !important; }
           .safety-wrap    { padding: 0 20px !important; }
-          .safety-title   { font-size: 28px !important; }
-          .safety-sub     { font-size: 17px !important; }
-          .safety-badges  { gap: 20px !important; margin-top: 40px !important; padding-top: 36px !important; justify-content: flex-start !important; }
+          .safety-title   { font-size: 24px !important; }
+          .safety-sub     { font-size: 15px !important; }
+          .safety-cards   { grid-template-columns: 1fr !important; }
+          .safety-badges  { gap: 20px !important; margin-top: 40px !important; padding-top: 36px !important; }
           .safety-badge-img { height: 52px !important; }
         }
       `}</style>

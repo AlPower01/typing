@@ -43,7 +43,7 @@ export default function StandardsSection() {
       style={{ background: '#ffffff', borderTop: '1px solid #EAEAEC', padding: '88px 0 80px' }}
     >
       <div
-        style={{ maxWidth: 1368, margin: '0 auto', padding: '0 48px', display: 'flex', gap: 80, alignItems: 'flex-start' }}
+        style={{ maxWidth: 1368, margin: '0 auto', padding: '0 36px', display: 'flex', gap: 80, alignItems: 'flex-start' }}
         className="standards-wrap"
       >
 

@@ -13,14 +13,14 @@ interface PlusSectionProps {
 }
 
 const CheckFree = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="Included">
+  <svg width="22" height="22" viewBox="0 0 32 32" fill="none" aria-label="Included">
     <circle cx="16" cy="16" r="16" fill="white"/>
     <path d="M9 16.5l5 5 9-9" stroke="#3082CF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 )
 
 const CheckPlus = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="Included">
+  <svg width="22" height="22" viewBox="0 0 32 32" fill="none" aria-label="Included">
     <circle cx="16" cy="16" r="16" fill="#F4CA66"/>
     <path d="M9 16.5l5 5 9-9" stroke="#3B5E2E" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
@@ -34,7 +34,7 @@ export default function PlusSection({ rows, showPricing = true }: PlusSectionPro
   return (
     <section id="plus" style={{ background: '#3082CF', padding: '80px 0', position: 'relative', overflow: 'hidden' }} aria-label="School Plus pricing">
 
-      <div style={{ maxWidth: 1368, margin: '0 auto', padding: '0 24px' }}>
+      <div style={{ maxWidth: 1368, margin: '0 auto', padding: '0 36px' }}>
         {/* Intro */}
         <div style={{ maxWidth: 'min(640px, calc(100% - 461px))', marginBottom: 0, paddingBottom: 36 }} className="plus-intro">
           <div style={{
@@ -118,10 +118,10 @@ export default function PlusSection({ rows, showPricing = true }: PlusSectionPro
                   role="rowheader"
                   style={{
                     position: 'relative', zIndex: 1,
-                    minHeight: 62, display: 'flex', alignItems: 'center',
-                    fontFamily: "'Nunito', sans-serif", fontSize: 15, fontWeight: 600, lineHeight: 1.3, color: '#ffffff',
+                    minHeight: 52, display: 'flex', alignItems: 'center',
+                    fontFamily: "'Nunito', sans-serif", fontSize: 14, fontWeight: 600, lineHeight: 1.3, color: '#ffffff',
                     borderTop: isFirst ? 'none' : '1px dashed rgba(255,255,255,0.3)',
-                    padding: isLast ? '12px 20px 12px 24px' : '12px 20px 12px 24px',
+                    padding: '10px 20px 10px 24px',
                   }}
                 >
                   {row.feature}
@@ -132,7 +132,7 @@ export default function PlusSection({ rows, showPricing = true }: PlusSectionPro
                   aria-label={row.free ? 'Free: included' : 'Free: not included'}
                   style={{
                     position: 'relative', zIndex: 1,
-                    marginLeft: 20, minHeight: 62,
+                    marginLeft: 20, minHeight: 52,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     background: '#2e6aa8',
                     borderTop: isFirst ? 'none' : '1px dashed rgba(255,255,255,0.3)',
@@ -147,7 +147,7 @@ export default function PlusSection({ rows, showPricing = true }: PlusSectionPro
                   aria-label={row.plus ? 'Plus: included' : 'Plus: not included'}
                   style={{
                     position: 'relative', zIndex: 1,
-                    marginLeft: 27, minHeight: 62,
+                    marginLeft: 27, minHeight: 52,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     background: 'linear-gradient(to right, #fcf2d8, #f9e4b3)',
                     borderTop: isFirst ? 'none' : '1px dashed rgba(160,120,40,0.35)',
@@ -211,20 +211,40 @@ export default function PlusSection({ rows, showPricing = true }: PlusSectionPro
           <div style={{ height: 16 }} />
         </div>
 
+        {/* Get PLUS Now CTA — only shown when pricing card is hidden */}
+        {!showPricing && <div style={{ marginBottom: 0 }}>
+          <a
+            href="/signup"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: 10,
+              background: '#ffcf46', color: '#2c5281',
+              fontFamily: "'Nunito', sans-serif", fontSize: 16, fontWeight: 900,
+              textTransform: 'uppercase', letterSpacing: '0.04em',
+              textDecoration: 'none', padding: '14px 32px',
+              borderRadius: 18, boxShadow: '0 6px 0 #e5ba3f',
+              transition: 'transform 0.08s ease, box-shadow 0.08s ease',
+            }}
+            className="plus-cta-primary"
+          >
+            <Image src="/images/crown_icon.svg" alt="" width={18} height={18} aria-hidden />
+            Get PLUS Now
+          </a>
+        </div>}
+
         {/* Pricing CTA */}
         {showPricing && <div style={{
           background: 'rgba(44,82,129,0.5)', backdropFilter: 'blur(30px)', WebkitBackdropFilter: 'blur(30px)',
-          border: '2px solid #2b6bb1', borderRadius: 28, padding: '56px 40px 48px',
+          border: '2px solid #2b6bb1', borderRadius: 28, padding: '36px 40px 32px',
           textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center',
         }} className="plus-pricing">
-          <Image src="/images/crown.svg" alt="" width={72} height={72} style={{ marginBottom: 20 }} />
+          <Image src="/images/crown.svg" alt="" width={96} height={96} style={{ marginBottom: 16 }} />
           <p style={{
-            fontFamily: "'Nunito', sans-serif", fontSize: 38, fontWeight: 700, lineHeight: 1.2,
-            color: '#ffffff', margin: '0 0 16px', maxWidth: 720,
+            fontFamily: "'Nunito', sans-serif", fontSize: 32, fontWeight: 700, lineHeight: 1.2,
+            color: '#ffffff', margin: '0 0 12px', maxWidth: 720,
           }} className="plus-pricing-headline">
             Pricing starts <span style={{ color: '#ffcf46' }}>$1.14/student</span> for large districts, bulk discounts
           </p>
-          <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: 20, fontWeight: 500, lineHeight: 1.7, color: 'rgba(255,255,255,0.9)', margin: '0 0 36px', maxWidth: 600 }} className="plus-pricing-sub">
+          <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: 17, fontWeight: 500, lineHeight: 1.6, color: 'rgba(255,255,255,0.9)', margin: '0 0 24px', maxWidth: 520 }} className="plus-pricing-sub">
             Get advanced reporting, classroom insights, and premium learning tools for your school or district.
           </p>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 20 }} className="plus-pricing-actions">
@@ -258,24 +278,30 @@ export default function PlusSection({ rows, showPricing = true }: PlusSectionPro
         .plus-cta-primary:active { transform: translateY(6px); box-shadow: 0 0 0 #e5ba3f !important; }
         .plus-cta-secondary:hover { transform: translateY(3px); box-shadow: 0 3px 0 rgba(100,180,237,0.5) !important; }
         .plus-cta-secondary:active { transform: translateY(6px); box-shadow: 0 0 0 rgba(100,180,237,0.5) !important; }
-        @media (max-width: 900px) {
-          .plus-title { font-size: 28px !important; }
-          .plus-pricing-headline { font-size: 28px !important; }
-          .plus-comparison { grid-template-columns: 1fr 170px 177px !important; }
-          .plus-intro { max-width: min(640px, calc(100% - 381px)) !important; }
+        @media (max-width: 1100px) {
+          .plus-comparison { grid-template-columns: 1fr 160px 167px !important; padding-right: 0 !important; }
           .plus-th-label { font-size: 22px !important; }
           .plus-logo-img { width: 82px !important; }
         }
+
+        /* Stack intro above table — prevents overlap at mid widths */
+        @media (max-width: 960px) {
+          .plus-intro { max-width: 100% !important; padding-bottom: 0 !important; margin-bottom: 32px !important; }
+          .plus-comparison { margin-top: 0 !important; }
+          .plus-glass { top: 111px !important; }
+          .plus-title { font-size: 28px !important; }
+          .plus-pricing-headline { font-size: 28px !important; }
+        }
+
         /* Mobile card layout */
         .plus-mobile-cards { display: none; }
 
         @media (max-width: 768px) {
           .plus-title { font-size: 22px !important; }
           .plus-desc { font-size: 17px !important; }
-          .plus-intro { max-width: 100% !important; padding-bottom: 0 !important; margin-bottom: 28px !important; }
-          .plus-pricing { padding: 40px 24px 36px !important; }
-          .plus-pricing-headline { font-size: 24px !important; }
-          .plus-pricing-sub { font-size: 17px !important; }
+          .plus-pricing { padding: 32px 24px 28px !important; }
+          .plus-pricing-headline { font-size: 22px !important; }
+          .plus-pricing-sub { font-size: 16px !important; }
           .plus-pricing-actions { flex-wrap: wrap !important; justify-content: center !important; }
           .plus-pricing-actions a { width: 100% !important; justify-content: center !important; }
         }
