@@ -9,6 +9,7 @@ interface PlusRow {
 
 interface PlusSectionProps {
   rows: PlusRow[]
+  showPricing?: boolean
 }
 
 const CheckFree = () => (
@@ -29,7 +30,7 @@ const Dash = () => (
   <span style={{ fontFamily: "'Nunito', sans-serif", fontSize: 18, fontWeight: 900, color: 'rgba(255,255,255,0.45)' }} aria-label="Not included">--</span>
 )
 
-export default function PlusSection({ rows }: PlusSectionProps) {
+export default function PlusSection({ rows, showPricing = true }: PlusSectionProps) {
   return (
     <section id="plus" style={{ background: '#3082CF', padding: '80px 0', position: 'relative', overflow: 'hidden' }} aria-label="School Plus pricing">
 
@@ -211,7 +212,7 @@ export default function PlusSection({ rows }: PlusSectionProps) {
         </div>
 
         {/* Pricing CTA */}
-        <div style={{
+        {showPricing && <div style={{
           background: 'rgba(44,82,129,0.5)', backdropFilter: 'blur(30px)', WebkitBackdropFilter: 'blur(30px)',
           border: '2px solid #2b6bb1', borderRadius: 28, padding: '56px 40px 48px',
           textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center',
@@ -249,7 +250,7 @@ export default function PlusSection({ rows }: PlusSectionProps) {
           <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: 18, fontWeight: 500, color: 'rgba(255,255,255,0.85)', margin: 0 }}>
             Alternatively, email our sales team: <a href="mailto:sales@typing.com" style={{ color: '#ffffff', fontWeight: 700, textDecoration: 'underline' }}>sales@typing.com</a>
           </p>
-        </div>
+        </div>}
       </div>
 
       <style>{`

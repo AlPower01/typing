@@ -9,168 +9,91 @@ import SafetySection from '@/components/sections/SafetySection'
 import AccessibilitySection from '@/components/sections/AccessibilitySection'
 import FaqSection from '@/components/sections/FaqSection'
 import SiteFooter from '@/components/layout/SiteFooter'
+import { studentTabs, studentPanels } from '@/lib/student-features-data'
+import { sharedCurriculumSections } from '@/lib/curriculum-data'
 
 export const metadata: Metadata = {
   title: 'Typing.com for Homeschoolers — Flexible Typing Practice at Home',
   description: 'Structured typing lessons, progress tracking, and a full K–12 curriculum for homeschool families. Free forever, with optional PLUS for deeper learning.',
 }
 
-// ─── Student features ────────────────────────────────────────────────────────
-
-const studentTabs = [
-  { label: 'Engaging Lessons' },
-  { label: 'Typing Tests & Benchmarks' },
-  { label: 'Adaptive Curriculum' },
-  { label: 'Fun Typing Games' },
-  { label: 'Gamified Learning' },
-  { label: 'Unlockable Worlds' },
-]
-
-const studentPanels = [
-  {
-    title: 'Step-by-step lessons that build real speed',
-    desc: 'From first-time typists to seasoned learners, our structured lessons guide your child through every key at their own pace — with instant feedback after every stroke.',
-    ctaText: 'Start Typing Free »',
-    ctaHref: '/signup',
-    imgSrc: 'images/right_student_carousel.png',
-    imgAlt: 'Interactive typing lesson interface',
-  },
-  {
-    title: 'Built-in typing tests with real WPM tracking',
-    desc: 'Take timed tests to measure speed and accuracy. Set personal goals, track progress over time, and celebrate milestones together.',
-    ctaText: 'Start Typing Free »',
-    ctaHref: '/signup',
-    imgSrc: 'images/right_student_carousel.png',
-    imgAlt: 'Typing test results showing WPM and accuracy',
-  },
-  {
-    title: 'A curriculum that adjusts to your child\'s level',
-    desc: 'Whether your child is a complete beginner or brushing up on speed, Typing.com automatically adapts difficulty so they\'re always improving — without frustration.',
-    ctaText: 'Start Typing Free »',
-    ctaHref: '/signup',
-    imgSrc: 'images/right_student_carousel.png',
-    imgAlt: 'Adaptive curriculum overview',
-  },
-  {
-    title: 'Typing games that turn practice into play',
-    desc: 'Arcade-style games make it easy to build speed without feeling like work. Perfect for short daily sessions in your homeschool routine.',
-    ctaText: 'Start Typing Free »',
-    ctaHref: '/signup',
-    imgSrc: 'images/right_student_carousel.png',
-    imgAlt: 'Fun typing games for kids',
-  },
-  {
-    title: 'Earn badges and stay motivated every session',
-    desc: 'Unlock achievements and climb leaderboards as your child progresses. Streaks and rewards give them a reason to come back every day.',
-    ctaText: 'Start Typing Free »',
-    ctaHref: '/signup',
-    imgSrc: 'images/right_student_carousel.png',
-    imgAlt: 'Gamified learning rewards and badges',
-  },
-  {
-    title: 'Complete lessons and unlock new worlds',
-    desc: 'Progress through the curriculum to discover themed worlds and exclusive content — turning your child\'s typing journey into an adventure.',
-    ctaText: 'Start Typing Free »',
-    ctaHref: '/signup',
-    imgSrc: 'images/right_student_carousel.png',
-    imgAlt: 'Unlockable worlds and rewards',
-  },
-]
-
 // ─── Instructor / parent features ────────────────────────────────────────────
 
 const instructorTabs = [
   { label: 'Simple Family Setup' },
-  { label: 'Printable Reports' },
-  { label: 'Motivating Daily Goals' },
-  { label: 'Flexible Learning Controls' },
-  { label: 'Unlimited Custom Content' },
   { label: 'Visual Progress Tracking' },
+  { label: 'Motivating Daily Goals' },
+  { label: 'Unlimited Custom Content' },
+  { label: 'Printable Reports' },
+  { label: 'Flexible Learning Controls' },
 ]
 
 const instructorPanels = [
   {
-    title: 'Add your students and start typing in minutes',
-    desc: 'Set up your children in seconds — no email address required. Manage all learners from one parent dashboard without any classroom overhead.',
-    ctaText: 'Get Started Free »',
-    ctaHref: '/signup',
+    title: 'Add Your Students & Start Typing',
     imgSrc: 'images/features_carousel.png',
     imgAlt: 'Family account setup dashboard',
-    bullets: [
-      { html: '<strong>No email required</strong> for students to get started' },
-      { html: '<strong>One parent login</strong> manages all children' },
-      { html: 'Works on <strong>any device</strong> with a keyboard' },
-      { html: '<strong>Instant access</strong> to full K–12 curriculum' },
+    accordionItems: [
+      { label: 'Quick Student Creation', text: 'Add students one at a time or create multiple at once. No rostering systems, no spreadsheets—just names and you\'re ready.' },
+      { label: 'Simple Class Structure', text: 'Organize students into classes if you have multiple children or just add them individually. It\'s flexible to fit however you homeschool.' },
+      { label: 'Choose Curriculum by Grade', text: 'Select the curriculum that matches each child\'s grade level—Kindergarten through 12th Grade, or Adult Learner—and they\'re ready to start their typing journey.' },
+      { label: 'Self-Join Links', text: 'Generate a unique link students can use to create their own accounts and join your class—perfect for older, independent learners.' },
     ],
   },
   {
-    title: 'Share progress with a printable report',
-    desc: 'Generate clear, parent-friendly reports to document your child\'s growth — perfect for portfolios, assessments, or sharing with co-ops.',
-    ctaText: 'Get Started Free »',
-    ctaHref: '/signup',
-    imgSrc: 'images/features_carousel.png',
-    imgAlt: 'Printable progress report example',
-    bullets: [
-      { html: '<strong>WPM and accuracy</strong> summaries per student' },
-      { html: 'Export as <strong>PDF or spreadsheet</strong>' },
-      { html: 'Track <strong>growth over time</strong> with trend charts' },
-      { html: 'Perfect for <strong>co-op or portfolio</strong> documentation' },
-    ],
-  },
-  {
-    title: 'Set daily goals that keep kids on track',
-    desc: 'Define daily or weekly typing targets that fit your homeschool schedule. Students earn rewards for hitting their goals — keeping motivation high.',
-    ctaText: 'Get Started Free »',
-    ctaHref: '/signup',
-    imgSrc: 'images/features_carousel.png',
-    imgAlt: 'Daily goal and streak tracking interface',
-    bullets: [
-      { html: 'Set <strong>custom daily or weekly</strong> typing targets' },
-      { html: '<strong>Streak tracking</strong> rewards consistent practice' },
-      { html: 'Goals adjust <strong>automatically</strong> as skills improve' },
-      { html: 'Works with <strong>any schedule</strong> — morning or afternoon' },
-    ],
-  },
-  {
-    title: 'Control what your child sees and when',
-    desc: 'Lock or unlock content, set pacing, and assign specific lessons to match your curriculum plan and your child\'s readiness.',
-    ctaText: 'Get Started Free »',
-    ctaHref: '/signup',
-    imgSrc: 'images/features_carousel.png',
-    imgAlt: 'Flexible learning controls panel',
-    bullets: [
-      { html: '<strong>Assign specific lessons</strong> to individual children' },
-      { html: '<strong>Lock or unlock</strong> content at any time' },
-      { html: 'Set <strong>grade-based paths</strong> for each learner' },
-      { html: 'Works alongside <strong>any homeschool curriculum</strong>' },
-    ],
-  },
-  {
-    title: 'Create lessons from your own curriculum',
-    desc: 'Turn any reading list, vocabulary set, or passage into a typing lesson. Build custom content that reinforces what you\'re already teaching.',
-    ctaText: 'Get Started Free »',
-    ctaHref: '/signup',
-    imgSrc: 'images/features_carousel.png',
-    imgAlt: 'Custom lesson creation interface',
-    bullets: [
-      { html: 'Create <strong>custom passages</strong> from any subject' },
-      { html: 'Upload <strong>reading lists</strong> as typing content' },
-      { html: 'Access <strong>500,000+ educator-created</strong> lessons' },
-      { html: 'Build <strong>vocabulary lessons</strong> tied to your units' },
-    ],
-  },
-  {
-    title: 'See exactly how each child is progressing',
-    desc: 'Visual dashboards show WPM growth, lesson completion, and accuracy trends at a glance — so you always know where each child stands.',
-    ctaText: 'Get Started Free »',
-    ctaHref: '/signup',
+    title: 'See What They\'ve Accomplished at a Glance',
     imgSrc: 'images/features_carousel.png',
     imgAlt: 'Visual progress tracking dashboard',
-    bullets: [
-      { html: '<strong>Live WPM and accuracy</strong> per student' },
-      { html: 'Spot <strong>plateaus early</strong> and adjust pacing' },
-      { html: '<strong>Lesson completion</strong> tracking across subjects' },
-      { html: 'Monitor progress from <strong>any device</strong>' },
+    accordionItems: [
+      { label: 'Student Dashboard', text: 'View each student\'s overall typing time, lessons completed, average speed and accuracy, and earned achievements all in one place.' },
+      { label: 'Activity Tracker Calendar', text: 'See which days your student practiced typing with a visual monthly calendar view—makes it easy to celebrate streaks and consistency.' },
+      { label: 'Lesson Progress Bars', text: 'Watch their progress across all curriculum areas with clear visual indicators. Know exactly which lessons are complete and what\'s coming next.' },
+      { label: 'Typing Test Results', text: 'Review performance on all typing tests with date, WPM, accuracy, and improvement trends over time. Print certificates to celebrate milestones.' },
+    ],
+  },
+  {
+    title: 'Set Daily Expectations & Build Habits',
+    imgSrc: 'images/features_carousel.png',
+    imgAlt: 'Daily goal and streak tracking interface',
+    accordionItems: [
+      { label: 'Daily Typing Goals', text: 'Set a required number of daily typing minutes for each student. A clear daily goal timer shows them exactly how much time remains.' },
+      { label: 'Game Access Control', text: 'Optionally restrict access to typing games until the daily goal is met—a simple, effective way to ensure practice comes before play.' },
+      { label: 'Encourage Streaks', text: 'Students earn streak achievements for consecutive days and weeks of typing, helping them build lasting habits and see their dedication rewarded.' },
+      { label: 'Live Activity Monitoring', text: 'See real-time activity over the last 30 minutes. Know who\'s actively typing and what they\'re working on right now.' },
+    ],
+  },
+  {
+    title: 'Create Lessons for Your Unique Curriculum',
+    imgSrc: 'images/features_carousel.png',
+    imgAlt: 'Custom lesson creation interface',
+    accordionItems: [
+      { label: 'Your Content, Your Way', text: 'Build custom typing lessons using vocabulary from your history unit, spelling words, science terms, Bible verses, or any content you want them to practice.' },
+      { label: 'Lesson Types', text: 'Create Typing Lessons, Typing Tests, or Written Prompts. Choose from Standard screens, Advanced (longer), Falling Letter, Block Letters, or Coding screens.' },
+      { label: 'Over 500,000 Created by Educators', text: 'Access lessons shared by other homeschool parents and teachers, or keep yours private for your family only.' },
+      { label: 'Assign & Track', text: 'Assign custom lessons to your students and monitor their progress just like any other lesson in the curriculum.' },
+    ],
+  },
+  {
+    title: 'Simple Reports When You Need Them',
+    imgSrc: 'images/features_carousel.png',
+    imgAlt: 'Printable progress report',
+    accordionItems: [
+      { label: 'Activity Summary', text: 'See total typing time, lessons completed, and average speed and accuracy for any date range—perfect for weekly reviews or end-of-semester records.' },
+      { label: 'Test Reports', text: 'Review typing test performance over time with Test Improvement Summary and Test Activity Details.' },
+      { label: 'Lesson Details', text: 'Drill into specific lessons to see quiz results, typing accuracy, and completion status.' },
+      { label: 'Print & Export', text: 'Generate printable reports for your homeschool records or portfolio reviews. Export to share with co-op teachers or evaluators.' },
+    ],
+  },
+  {
+    title: 'Adjust Settings to Fit Your Family',
+    imgSrc: 'images/features_carousel.png',
+    imgAlt: 'Flexible learning controls panel',
+    accordionItems: [
+      { label: 'Game & Lesson Control', text: 'Enable or disable specific typing games and lessons for each student. Turn off content that doesn\'t fit your curriculum or values.' },
+      { label: 'Grading Thresholds', text: 'Set minimum speed and accuracy requirements to earn stars on lessons, or let students work at their own pace without pressure.' },
+      { label: 'Accessibility Options', text: 'Enable dyslexic font, high contrast theme, dictation, closed captions, typing sounds, or one-handed typing for students who need them.' },
+      { label: 'Lesson Progression', text: 'Allow students to redo completed lessons, skip around in the curriculum, or require sequential completion—your choice.' },
+      { label: 'Student Announcements', text: 'Post custom messages to the student dashboard to encourage, remind, or celebrate progress.' },
     ],
   },
 ]
@@ -189,153 +112,7 @@ const statsData = {
 
 // ─── Curriculum ───────────────────────────────────────────────────────────────
 
-const curriculumSections = [
-  {
-    id: 'keyboarding',
-    label: 'Keyboarding',
-    subtitle: 'Core touch-typing instruction from first key reaches through advanced fluency.',
-    lessons: [
-      { name: 'Pre-Keyboarding',             grade: 'K-6' },
-      { name: 'Learn the Keys',              grade: 'K-12 – Adults' },
-      { name: 'Punctuation & Numbers',       grade: '1-3' },
-      { name: 'Punctuation & Advanced Keys', grade: '4-12 + Adult' },
-      { name: 'Personalized Practice',       grade: 'K-12 – Adults' },
-      { name: 'Typing Tests',                grade: 'K-12 – Adults' },
-      { name: 'Numeric Keypad / 10-Key',     grade: 'Adult + Core' },
-      { name: 'Dvorak Keyboard',             grade: 'Core' },
-    ],
-  },
-  {
-    id: 'cross-curricular',
-    label: 'Cross-Curricular',
-    subtitle: 'Reinforce academic vocabulary and skills across every subject area.',
-    lessons: [
-      { name: 'Science Vocabulary', grade: 'K-12' },
-      { name: 'Math Terminology',   grade: '3-12' },
-      { name: 'Social Studies',     grade: 'K-8' },
-      { name: 'ELA Practice',       grade: 'K-12' },
-      { name: 'World Languages',    grade: '4-12' },
-      { name: 'STEM Essentials',    grade: '6-12' },
-    ],
-  },
-  {
-    id: 'digital-citizenship',
-    label: 'Digital Citizenship',
-    subtitle: 'Navigate the digital world safely and responsibly.',
-    lessons: [
-      { name: 'Online Safety',        grade: 'K-12' },
-      { name: 'Privacy & Security',   grade: '4-12' },
-      { name: 'Cyberbullying',        grade: 'K-8' },
-      { name: 'Digital Footprint',    grade: '6-12' },
-      { name: 'Screen Time Balance',  grade: 'K-6' },
-      { name: 'Copyright & Fair Use', grade: '6-12' },
-    ],
-  },
-  {
-    id: 'ai-literacy',
-    label: 'AI Literacy',
-    subtitle: 'Build foundational knowledge and critical thinking skills around artificial intelligence.',
-    lessons: [
-      { name: 'What is AI?',         grade: 'K-6' },
-      { name: 'AI in Daily Life',    grade: '4-12' },
-      { name: 'Responsible AI Use',  grade: '6-12' },
-      { name: 'Prompt Engineering',  grade: '8-12' },
-      { name: 'AI Ethics',           grade: '8-12' },
-      { name: 'AI & Future Careers', grade: '6-12' },
-    ],
-  },
-  {
-    id: 'computer-applications',
-    label: 'Computer Applications',
-    subtitle: 'Practical software skills you use every day.',
-    lessons: [
-      { name: 'Word Processing',     grade: 'K-12' },
-      { name: 'Spreadsheets',        grade: '4-12' },
-      { name: 'Presentations',       grade: 'K-12' },
-      { name: 'Email Etiquette',     grade: '4-12' },
-      { name: 'File Management',     grade: 'K-8' },
-      { name: 'Collaboration Tools', grade: '6-12' },
-    ],
-  },
-  {
-    id: 'coding',
-    label: 'Coding',
-    subtitle: 'Introductory and intermediate programming concepts for every level.',
-    lessons: [
-      { name: 'Block Coding',  grade: 'K-5' },
-      { name: 'HTML Basics',   grade: '6-12' },
-      { name: 'Python Intro',  grade: '8-12' },
-      { name: 'JavaScript',    grade: '8-12' },
-      { name: 'Algorithms',    grade: '4-12' },
-      { name: 'App Design',    grade: '6-12' },
-    ],
-  },
-  {
-    id: 'creative-writing',
-    label: 'Creative Writing',
-    subtitle: 'Inspire expression and build writing fluency through meaningful practice.',
-    lessons: [
-      { name: 'Short Stories',          grade: 'K-12' },
-      { name: 'Poetry',                 grade: 'K-12' },
-      { name: 'Persuasive Essays',      grade: '4-12' },
-      { name: 'Journals & Reflections', grade: 'K-8' },
-      { name: 'Research Reports',       grade: '6-12' },
-      { name: 'Creative Fiction',       grade: '6-12' },
-    ],
-  },
-  {
-    id: 'test-prep',
-    label: 'Test Prep',
-    subtitle: 'Build the speed and accuracy you need to succeed on digital assessments.',
-    lessons: [
-      { name: 'Typing Assessments',    grade: 'K-12' },
-      { name: 'Essay Practice',        grade: '4-12' },
-      { name: 'State Test Prep',       grade: '3-12' },
-      { name: 'ACT/SAT Ready',         grade: '8-12' },
-      { name: 'Reading Comprehension', grade: '3-12' },
-      { name: 'Timed Challenges',      grade: '4-12' },
-    ],
-  },
-  {
-    id: 'career-prep',
-    label: 'Career Prep',
-    subtitle: 'Workplace-ready communication and productivity skills for adults and learners.',
-    lessons: [
-      { name: 'Business Writing',            grade: '8-12' },
-      { name: 'Email Etiquette',             grade: '6-12' },
-      { name: 'Resume & Cover Letters',      grade: '9-12' },
-      { name: 'Professional Communication',  grade: '8-12' },
-      { name: 'Interview Preparation',       grade: '9-12' },
-      { name: 'Workplace Skills',            grade: '9-12' },
-    ],
-  },
-  {
-    id: 'standards',
-    label: 'Standards',
-    subtitle: 'Aligned to national and state standards for learning and digital literacy.',
-    lessons: [
-      { name: 'ISTE Standards',      grade: 'K-12' },
-      { name: 'Common Core ELA',     grade: 'K-12' },
-      { name: 'CSTA Standards',      grade: 'K-12' },
-      { name: 'State Standards',     grade: 'K-12' },
-      { name: '21st Century Skills', grade: 'K-12' },
-      { name: 'NGSS Integration',    grade: 'K-12' },
-    ],
-  },
-  {
-    id: 'custom-lessons',
-    label: 'Custom Lessons',
-    subtitle: 'Create and save your own lessons — or explore thousands created by the community.',
-    lessons: [
-      { name: 'Create a Lesson',      grade: 'All Ages' },
-      { name: 'Share with Others',    grade: 'All Ages' },
-      { name: 'Import Content',       grade: 'All Ages' },
-      { name: 'Lesson Library',       grade: 'All Ages' },
-      { name: 'AI-Assisted Creation', grade: 'All Ages' },
-      { name: 'Community Spotlight',  grade: 'All Ages' },
-    ],
-  },
-]
+const curriculumSections = sharedCurriculumSections
 
 // ─── PLUS rows ────────────────────────────────────────────────────────────────
 
@@ -480,8 +257,9 @@ export default function HomeschoolPage() {
           <FeaturesSection
             variant="student"
             theme="green"
-            badge="Features"
+            badge="Student Features"
             title="An engaging, motivating experience that builds real typing skills."
+            subtitle="Structured practice, games, personalized feedback, and progression systems that keep students motivated from their first lesson through mastery."
             tabs={studentTabs}
             panels={studentPanels}
           />
@@ -498,14 +276,19 @@ export default function HomeschoolPage() {
           theme="green"
           badge="Homeschool Instructor Features"
           title="Simple tools to track progress without the classroom overhead."
+          subtitle="Manage your students, set goals, monitor daily activity, and see exactly where they are—without district dashboards or complicated reports you don't need."
           tabs={instructorTabs}
           panels={instructorPanels}
         />
 
+
         {/* ── PLUS ──────────────────────────────────────────────────── */}
         <div id="plus">
-          <PlusSection rows={plusRows} />
+          <PlusSection rows={plusRows} showPricing={false} />
         </div>
+
+        {/* ── Accessibility ─────────────────────────────────────────── */}
+        <AccessibilitySection cards={accessCards} />
 
         {/* ── Safety ────────────────────────────────────────────────── */}
         <SafetySection
@@ -518,21 +301,8 @@ export default function HomeschoolPage() {
           ]}
         />
 
-        {/* ── Accessibility ─────────────────────────────────────────── */}
-        <AccessibilitySection cards={accessCards} />
-
         {/* ── FAQ ───────────────────────────────────────────────────── */}
         <FaqSection items={faqItems} />
-
-        {/* ── Pre-footer CTA ────────────────────────────────────────── */}
-        <div className="hs-prefooter">
-          <h2 className="hs-prefooter-h2">
-            Flexible typing practice your whole family will love.
-          </h2>
-          <Link href="/signup" className="hs-prefooter-cta">
-            Start Typing Free »
-          </Link>
-        </div>
 
         {/* ── Footer ────────────────────────────────────────────────── */}
         <SiteFooter tagline="Typing for Flexible Home Learning" />

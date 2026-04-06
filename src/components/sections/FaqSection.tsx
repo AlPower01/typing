@@ -51,7 +51,7 @@ export default function FaqSection({ items }: FaqSectionProps) {
                   }}
                   className="faq-question"
                 >
-                  <span style={{ fontSize: 20, fontWeight: 700, color: '#212731', lineHeight: 1.2 }} className="faq-question-text">
+                  <span style={{ fontSize: 20, fontWeight: 700, color: '#3082cf', lineHeight: 1.2 }} className="faq-question-text">
                     {item.question}
                   </span>
                   <span
@@ -92,6 +92,8 @@ export default function FaqSection({ items }: FaqSectionProps) {
       </div>
 
       <style>{`
+        .faq-question:hover .faq-question-text { color: #1a5fa8 !important; }
+
         @media (max-width: 860px) {
           .faq-section { padding: 64px 0 72px !important; }
           .faq-wrap { padding: 0 32px !important; }

@@ -9,73 +9,13 @@ import SafetySection from '@/components/sections/SafetySection'
 import AccessibilitySection from '@/components/sections/AccessibilitySection'
 import FaqSection from '@/components/sections/FaqSection'
 import SiteFooter from '@/components/layout/SiteFooter'
+import { studentTabs as featureTabs, studentPanels as featurePanels } from '@/lib/student-features-data'
+import { sharedCurriculumSections } from '@/lib/curriculum-data'
 
 export const metadata: Metadata = {
   title: 'Typing.com for Individuals — Free Typing Practice at Your Own Pace',
   description: 'Self-paced typing lessons, tests and games for beginners through advanced learners. 100% free, no account required.',
 }
-
-// ─── Feature section data ────────────────────────────────────────────────────
-
-const featureTabs = [
-  { label: 'Engaging Lessons' },
-  { label: 'Typing Tests & Benchmarks' },
-  { label: 'Adaptive Curriculum' },
-  { label: 'Fun Typing Games' },
-  { label: 'Gamified Learning' },
-  { label: 'Unlockable Worlds' },
-]
-
-const featurePanels = [
-  {
-    title: 'Step-by-step lessons that build real speed',
-    desc: 'From first-time typists to seasoned professionals, our structured lessons guide you through every key at your own pace — with instant feedback after every stroke.',
-    ctaText: 'Start Typing Free »',
-    ctaHref: '/signup',
-    imgSrc: 'images/right_student_carousel.png',
-    imgAlt: 'Interactive typing lesson interface',
-  },
-  {
-    title: 'Built-in typing tests with real WPM tracking',
-    desc: 'Take timed tests to measure your speed and accuracy. Set personal goals, track your growth, and share results — all for free.',
-    ctaText: 'Start Typing Free »',
-    ctaHref: '/signup',
-    imgSrc: 'images/right_student_carousel.png',
-    imgAlt: 'Typing test results',
-  },
-  {
-    title: 'A curriculum that adjusts to your level',
-    desc: 'Whether you\'re a complete beginner or brushing up on speed, Typing.com automatically adapts difficulty so you\'re always improving without frustration.',
-    ctaText: 'Start Typing Free »',
-    ctaHref: '/signup',
-    imgSrc: 'images/right_student_carousel.png',
-    imgAlt: 'Adaptive curriculum overview',
-  },
-  {
-    title: 'Typing games that turn practice into play',
-    desc: 'Arcade-style games make it easy to build speed without feeling like work. Perfect for short sessions between your day.',
-    ctaText: 'Start Typing Free »',
-    ctaHref: '/signup',
-    imgSrc: 'images/right_student_carousel.png',
-    imgAlt: 'Fun typing games',
-  },
-  {
-    title: 'Earn badges and stay motivated every session',
-    desc: 'Unlock achievements and climb leaderboards as you progress. Streaks and rewards give you a reason to come back every day.',
-    ctaText: 'Start Typing Free »',
-    ctaHref: '/signup',
-    imgSrc: 'images/right_student_carousel.png',
-    imgAlt: 'Gamified learning rewards',
-  },
-  {
-    title: 'Complete lessons and unlock new worlds',
-    desc: 'Progress through the curriculum to discover themed worlds and exclusive content — turning your typing journey into an adventure.',
-    ctaText: 'Start Typing Free »',
-    ctaHref: '/signup',
-    imgSrc: 'images/right_student_carousel.png',
-    imgAlt: 'Unlockable worlds and rewards',
-  },
-]
 
 // ─── Stats data ──────────────────────────────────────────────────────────────
 
@@ -91,153 +31,7 @@ const statsData = {
 
 // ─── Curriculum data ─────────────────────────────────────────────────────────
 
-const curriculumSections = [
-  {
-    id: 'keyboarding',
-    label: 'Keyboarding',
-    subtitle: 'Core touch-typing instruction from first key reaches through advanced fluency.',
-    lessons: [
-      { name: 'Pre-Keyboarding',             grade: 'K-6' },
-      { name: 'Learn the Keys',              grade: 'K-12 – Adults' },
-      { name: 'Punctuation & Numbers',       grade: '1-3' },
-      { name: 'Punctuation & Advanced Keys', grade: '4-12 + Adult' },
-      { name: 'Personalized Practice',       grade: 'K-12 – Adults' },
-      { name: 'Typing Tests',                grade: 'K-12 – Adults' },
-      { name: 'Numeric Keypad / 10-Key',     grade: 'Adult + Core' },
-      { name: 'Dvorak Keyboard',             grade: 'Core' },
-    ],
-  },
-  {
-    id: 'cross-curricular',
-    label: 'Cross-Curricular',
-    subtitle: 'Reinforce academic vocabulary and skills across every subject area.',
-    lessons: [
-      { name: 'Science Vocabulary', grade: 'K-12' },
-      { name: 'Math Terminology',   grade: '3-12' },
-      { name: 'Social Studies',     grade: 'K-8' },
-      { name: 'ELA Practice',       grade: 'K-12' },
-      { name: 'World Languages',    grade: '4-12' },
-      { name: 'STEM Essentials',    grade: '6-12' },
-    ],
-  },
-  {
-    id: 'digital-citizenship',
-    label: 'Digital Citizenship',
-    subtitle: 'Navigate the digital world safely and responsibly.',
-    lessons: [
-      { name: 'Online Safety',        grade: 'K-12' },
-      { name: 'Privacy & Security',   grade: '4-12' },
-      { name: 'Cyberbullying',        grade: 'K-8' },
-      { name: 'Digital Footprint',    grade: '6-12' },
-      { name: 'Screen Time Balance',  grade: 'K-6' },
-      { name: 'Copyright & Fair Use', grade: '6-12' },
-    ],
-  },
-  {
-    id: 'ai-literacy',
-    label: 'AI Literacy',
-    subtitle: 'Build foundational knowledge and critical thinking skills around artificial intelligence.',
-    lessons: [
-      { name: 'What is AI?',         grade: 'K-6' },
-      { name: 'AI in Daily Life',    grade: '4-12' },
-      { name: 'Responsible AI Use',  grade: '6-12' },
-      { name: 'Prompt Engineering',  grade: '8-12' },
-      { name: 'AI Ethics',           grade: '8-12' },
-      { name: 'AI & Future Careers', grade: '6-12' },
-    ],
-  },
-  {
-    id: 'computer-applications',
-    label: 'Computer Applications',
-    subtitle: 'Practical software skills you use every day.',
-    lessons: [
-      { name: 'Word Processing',     grade: 'K-12' },
-      { name: 'Spreadsheets',        grade: '4-12' },
-      { name: 'Presentations',       grade: 'K-12' },
-      { name: 'Email Etiquette',     grade: '4-12' },
-      { name: 'File Management',     grade: 'K-8' },
-      { name: 'Collaboration Tools', grade: '6-12' },
-    ],
-  },
-  {
-    id: 'coding',
-    label: 'Coding',
-    subtitle: 'Introductory and intermediate programming concepts for every level.',
-    lessons: [
-      { name: 'Block Coding',  grade: 'K-5' },
-      { name: 'HTML Basics',   grade: '6-12' },
-      { name: 'Python Intro',  grade: '8-12' },
-      { name: 'JavaScript',    grade: '8-12' },
-      { name: 'Algorithms',    grade: '4-12' },
-      { name: 'App Design',    grade: '6-12' },
-    ],
-  },
-  {
-    id: 'creative-writing',
-    label: 'Creative Writing',
-    subtitle: 'Inspire expression and build writing fluency through meaningful practice.',
-    lessons: [
-      { name: 'Short Stories',          grade: 'K-12' },
-      { name: 'Poetry',                 grade: 'K-12' },
-      { name: 'Persuasive Essays',      grade: '4-12' },
-      { name: 'Journals & Reflections', grade: 'K-8' },
-      { name: 'Research Reports',       grade: '6-12' },
-      { name: 'Creative Fiction',       grade: '6-12' },
-    ],
-  },
-  {
-    id: 'test-prep',
-    label: 'Test Prep',
-    subtitle: 'Build the speed and accuracy you need to succeed on digital assessments.',
-    lessons: [
-      { name: 'Typing Assessments',    grade: 'K-12' },
-      { name: 'Essay Practice',        grade: '4-12' },
-      { name: 'State Test Prep',       grade: '3-12' },
-      { name: 'ACT/SAT Ready',         grade: '8-12' },
-      { name: 'Reading Comprehension', grade: '3-12' },
-      { name: 'Timed Challenges',      grade: '4-12' },
-    ],
-  },
-  {
-    id: 'career-prep',
-    label: 'Career Prep',
-    subtitle: 'Workplace-ready communication and productivity skills for adults and learners.',
-    lessons: [
-      { name: 'Business Writing',         grade: '8-12' },
-      { name: 'Email Etiquette',          grade: '6-12' },
-      { name: 'Resume & Cover Letters',   grade: '9-12' },
-      { name: 'Professional Communication', grade: '8-12' },
-      { name: 'Interview Preparation',    grade: '9-12' },
-      { name: 'Workplace Skills',         grade: '9-12' },
-    ],
-  },
-  {
-    id: 'standards',
-    label: 'Standards',
-    subtitle: 'Aligned to national and state standards for learning and digital literacy.',
-    lessons: [
-      { name: 'ISTE Standards',      grade: 'K-12' },
-      { name: 'Common Core ELA',     grade: 'K-12' },
-      { name: 'CSTA Standards',      grade: 'K-12' },
-      { name: 'State Standards',     grade: 'K-12' },
-      { name: '21st Century Skills', grade: 'K-12' },
-      { name: 'NGSS Integration',    grade: 'K-12' },
-    ],
-  },
-  {
-    id: 'custom-lessons',
-    label: 'Custom Lessons',
-    subtitle: 'Create and save your own lessons — or explore thousands created by the community.',
-    lessons: [
-      { name: 'Create a Lesson',     grade: 'All Ages' },
-      { name: 'Share with Others',   grade: 'All Ages' },
-      { name: 'Import Content',      grade: 'All Ages' },
-      { name: 'Lesson Library',      grade: 'All Ages' },
-      { name: 'AI-Assisted Creation',grade: 'All Ages' },
-      { name: 'Community Spotlight', grade: 'All Ages' },
-    ],
-  },
-]
+const curriculumSections = sharedCurriculumSections
 
 // ─── Accessibility cards ─────────────────────────────────────────────────────
 
@@ -376,6 +170,7 @@ export default function IndividualPage() {
             theme="blue"
             badge="Features"
             title="An engaging, motivating experience that builds real typing skills."
+            subtitle="Structured practice, games, personalized feedback, and progression systems that keep you motivated from your first lesson through mastery."
             tabs={featureTabs}
             panels={featurePanels}
           />
@@ -400,8 +195,6 @@ export default function IndividualPage() {
           ]}
         />
 
-        {/* ── Accessibility ───────────────────────────────────────── */}
-        <AccessibilitySection cards={accessCards} />
 
         {/* ── FAQ ─────────────────────────────────────────────────── */}
         <FaqSection items={faqItems} />

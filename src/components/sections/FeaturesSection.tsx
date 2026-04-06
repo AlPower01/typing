@@ -7,14 +7,21 @@ interface Bullet {
   html: string
 }
 
+interface AccordionItem {
+  label: string
+  text: string
+}
+
 interface Panel {
   title: string
-  desc: string
-  ctaText: string
-  ctaHref: string
+  desc?: string
+  ctaText?: string
+  ctaHref?: string
   imgSrc: string
   imgAlt: string
   bullets?: Bullet[]
+  accordionItems?: AccordionItem[]
+  paragraphs?: string[]
 }
 
 interface FeaturesTab {
@@ -23,7 +30,6 @@ interface FeaturesTab {
 
 type Theme = 'orange' | 'blue' | 'green'
 
-// Only the section background changes per theme — everything else is always blue
 const SECTION_BG: Record<Theme, string> = {
   orange: '#FEF3EC',
   blue:   '#EBF8FF',
@@ -35,6 +41,7 @@ interface FeaturesSectionProps {
   theme?: Theme
   badge: string
   title: string
+  subtitle?: string
   tabs: FeaturesTab[]
   panels: Panel[]
 }
@@ -45,9 +52,20 @@ const Chevron = ({ open }: { open: boolean }) => (
   </svg>
 )
 
-export default function FeaturesSection({ variant, theme = 'blue', badge, title, tabs, panels }: FeaturesSectionProps) {
+export default function FeaturesSection({ variant, theme = 'blue', badge, title, subtitle, tabs, panels }: FeaturesSectionProps) {
   const [activeTab, setActiveTab] = useState(0)
   const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [openAccordionIndex, setOpenAccordionIndex] = useState(0)
+
+  const handleTabChange = (i: number) => {
+    setActiveTab(i)
+    setOpenAccordionIndex(0)
+    setDropdownOpen(false)
+  }
+
+  const handleAccordionClick = (ai: number) => {
+    setOpenAccordionIndex(openAccordionIndex === ai ? -1 : ai)
+  }
 
   return (
     <section
@@ -89,10 +107,22 @@ export default function FeaturesSection({ variant, theme = 'blue', badge, title,
             lineHeight: 1.2,
             color: '#212731',
             maxWidth: 818,
-            margin: '0 auto',
+            margin: subtitle ? '0 auto 16px' : '0 auto',
           }} className="features-title">
             {title}
           </h2>
+          {subtitle && (
+            <p style={{
+              fontSize: 18,
+              fontWeight: 500,
+              color: '#63676e',
+              lineHeight: 1.7,
+              maxWidth: 680,
+              margin: '0 auto',
+            }}>
+              {subtitle}
+            </p>
+          )}
         </div>
 
         {/* Card */}
@@ -105,7 +135,7 @@ export default function FeaturesSection({ variant, theme = 'blue', badge, title,
           zIndex: 1,
         }}>
 
-          {/* Mobile dropdown — inside card, hidden on desktop */}
+          {/* Mobile dropdown */}
           <div style={{ position: 'relative', padding: '16px 16px 0' }} className="features-dropdown-wrap">
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -147,7 +177,7 @@ export default function FeaturesSection({ variant, theme = 'blue', badge, title,
                 {tabs.map((tab, i) => (
                   <button
                     key={i}
-                    onClick={() => { setActiveTab(i); setDropdownOpen(false) }}
+                    onClick={() => handleTabChange(i)}
                     style={{
                       width: '100%',
                       display: 'block',
@@ -169,10 +199,9 @@ export default function FeaturesSection({ variant, theme = 'blue', badge, title,
               </div>
             )}
           </div>
-          {/* Spacer below dropdown so card border shows beneath it */}
           <div className="features-dropdown-spacer" style={{ height: 0 }} />
 
-          {/* Tab bar — hidden on mobile, replaced by dropdown above */}
+          {/* Tab bar */}
           <div
             role="tablist"
             aria-label={variant === 'student' ? 'Feature categories' : 'Teacher feature categories'}
@@ -194,16 +223,16 @@ export default function FeaturesSection({ variant, theme = 'blue', badge, title,
                 key={i}
                 role="tab"
                 aria-selected={activeTab === i}
-                onClick={() => setActiveTab(i)}
+                onClick={() => handleTabChange(i)}
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  height: 40,
-                  padding: '0 18px',
+                  height: 36,
+                  padding: '0 14px',
                   borderRadius: 8,
                   fontFamily: "'Nunito', sans-serif",
-                  fontSize: 16,
+                  fontSize: 15,
                   fontWeight: activeTab === i ? 800 : 700,
                   color: activeTab === i ? '#ffffff' : '#909398',
                   background: activeTab === i ? '#3082CF' : 'none',
@@ -231,7 +260,7 @@ export default function FeaturesSection({ variant, theme = 'blue', badge, title,
               }}
               className="features-panel"
             >
-              {/* Left — text + CTA */}
+              {/* Left */}
               <div
                 style={{
                   flex: '0 0 50%',
@@ -242,12 +271,104 @@ export default function FeaturesSection({ variant, theme = 'blue', badge, title,
                 }}
                 className="features-panel-left"
               >
-                <h3 style={{ fontSize: 28, fontWeight: 700, lineHeight: 1.2, color: '#212731', marginBottom: 16 }} className="features-panel-title">
+                <h3 style={{ fontSize: 24, fontWeight: 700, lineHeight: 1.2, color: '#212731', marginBottom: 16 }} className="features-panel-title">
                   {panel.title}
                 </h3>
-                <p style={{ fontSize: 20, fontWeight: 500, lineHeight: 1.7, color: '#797C81', marginBottom: 16 }} className="features-panel-desc">
-                  {panel.desc}
-                </p>
+
+                {/* Accordion items (student panels) */}
+                {panel.accordionItems && (
+                  <div style={{ display: 'flex', flexDirection: 'column', margin: '4px 0 0' }}>
+                    {panel.accordionItems.map((item, ai) => (
+                      <div
+                        key={ai}
+                        style={{
+                          borderBottom: '1px solid #EAEAEC',
+                          ...(ai === 0 ? { borderTop: '1px solid #EAEAEC' } : {}),
+                        }}
+                      >
+                        <button
+                          aria-expanded={openAccordionIndex === ai}
+                          onClick={() => handleAccordionClick(ai)}
+                          className="features-accordion-btn"
+                          style={{
+                            width: '100%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            gap: 12,
+                            padding: '13px 0',
+                            background: 'none',
+                            border: 'none',
+                            cursor: 'pointer',
+                            fontFamily: "'Nunito', sans-serif",
+                            fontSize: 18,
+                            fontWeight: 700,
+                            color: '#3082CF',
+                            textAlign: 'left',
+                          }}
+                        >
+                          {item.label}
+                          <span style={{
+                            fontSize: 22,
+                            fontWeight: 400,
+                            color: '#3082CF',
+                            lineHeight: 1,
+                            flexShrink: 0,
+                            display: 'inline-block',
+                            width: 20,
+                            textAlign: 'center',
+                          }}>
+                            {openAccordionIndex === ai ? '−' : '+'}
+                          </span>
+                        </button>
+                        <div style={{
+                          display: 'grid',
+                          gridTemplateRows: openAccordionIndex === ai ? '1fr' : '0fr',
+                          transition: 'grid-template-rows 0.25s ease',
+                        }}>
+                          <div style={{ overflow: 'hidden' }}>
+                            <p style={{
+                              padding: '2px 0 14px',
+                              fontSize: 16,
+                              fontWeight: 500,
+                              color: '#63676E',
+                              lineHeight: 1.65,
+                              margin: 0,
+                            }}>
+                              {item.text}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Plain paragraphs (panels 3 & 6) */}
+                {panel.paragraphs && (
+                  <div>
+                    {panel.paragraphs.map((para, pi) => (
+                      <p key={pi} style={{
+                        fontSize: 16,
+                        fontWeight: 500,
+                        color: '#63676E',
+                        lineHeight: 1.7,
+                        marginBottom: 16,
+                        margin: pi < panel.paragraphs!.length - 1 ? '0 0 16px' : 0,
+                      }}>
+                        {para}
+                      </p>
+                    ))}
+                  </div>
+                )}
+
+                {/* Regular desc (teacher panels) */}
+                {panel.desc && (
+                  <p style={{ fontSize: 20, fontWeight: 500, lineHeight: 1.7, color: '#797C81', marginBottom: 16 }} className="features-panel-desc">
+                    {panel.desc}
+                  </p>
+                )}
+
                 {panel.bullets && panel.bullets.length > 0 && (
                   <ul style={{ listStyle: 'none', margin: '0 0 20px', padding: 0, display: 'flex', flexDirection: 'column', gap: 6 }}>
                     {panel.bullets.map((b, bi) => (
@@ -261,34 +382,37 @@ export default function FeaturesSection({ variant, theme = 'blue', badge, title,
                     ))}
                   </ul>
                 )}
-                <a
-                  href={panel.ctaHref}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    alignSelf: 'flex-start',
-                    background: '#DAF0FB',
-                    color: '#2C5281',
-                    border: '1px solid #64B4ED',
-                    borderRadius: 18,
-                    fontFamily: "'Nunito', sans-serif",
-                    fontWeight: 900,
-                    fontSize: 16,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.04em',
-                    padding: '14px 32px',
-                    textDecoration: 'none',
-                    boxShadow: '0 6px 0 #90CEF4',
-                    transition: 'transform 0.08s ease, box-shadow 0.08s ease',
-                  }}
-                  className="features-cta"
-                >
-                  {panel.ctaText}
-                </a>
+
+                {panel.ctaText && panel.ctaHref && (
+                  <a
+                    href={panel.ctaHref}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      alignSelf: 'flex-start',
+                      background: '#DAF0FB',
+                      color: '#2C5281',
+                      border: '1px solid #64B4ED',
+                      borderRadius: 18,
+                      fontFamily: "'Nunito', sans-serif",
+                      fontWeight: 900,
+                      fontSize: 16,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.04em',
+                      padding: '14px 32px',
+                      textDecoration: 'none',
+                      boxShadow: '0 6px 0 #90CEF4',
+                      transition: 'transform 0.08s ease, box-shadow 0.08s ease',
+                    }}
+                    className="features-cta"
+                  >
+                    {panel.ctaText}
+                  </a>
+                )}
               </div>
 
-              {/* Right — image panel */}
+              {/* Right — image */}
               <div
                 style={{
                   flex: 1,
@@ -319,7 +443,8 @@ export default function FeaturesSection({ variant, theme = 'blue', badge, title,
         .features-cta:hover  { transform: translateY(3px); box-shadow: 0 3px 0 var(--features-cta-shadow) !important; }
         .features-cta:active { transform: translateY(6px); box-shadow: 0 0 0 var(--features-cta-shadow) !important; }
 
-        /* Default: show tab bar, hide mobile dropdown */
+        .features-accordion-btn:hover { color: #1a5fa8 !important; }
+
         .features-dropdown-wrap { display: none; }
 
         @media (max-width: 640px) {
@@ -331,14 +456,7 @@ export default function FeaturesSection({ variant, theme = 'blue', badge, title,
           .features-title       { font-size: 32px !important; }
           .features-panel-left  { padding: 40px 36px 40px 40px !important; }
           .features-panel-desc  { font-size: 18px !important; }
-        }
-        /* Shrink tabs to stay on one line as long as possible */
-        @media (max-width: 1100px) {
-          .features-tablist button { font-size: 14px !important; padding: 0 10px !important; height: 36px !important; }
-        }
-        /* Once wrapping is inevitable, restore readable size */
-        @media (max-width: 760px) {
-          .features-tablist button { font-size: 16px !important; padding: 0 14px !important; height: 40px !important; }
+          .features-tablist button { padding: 0 10px !important; }
         }
         @media (max-width: 860px) {
           .features-section      { padding: 56px 0 !important; }
@@ -347,11 +465,12 @@ export default function FeaturesSection({ variant, theme = 'blue', badge, title,
           .features-panel-right  { flex: none !important; border-left: none !important; border-top: 1px solid #90CEF4 !important; border-radius: 0 !important; height: 260px !important; position: relative !important; padding: 20px !important; }
           .features-panel-right > div { height: 100% !important; }
           .features-title        { font-size: 28px !important; }
+          .features-tablist button { padding: 0 8px !important; }
         }
         @media (max-width: 600px) {
           .features-section      { padding: 48px 0 !important; }
           .features-title        { font-size: 24px !important; }
-          .features-panel-title  { font-size: 22px !important; }
+          .features-panel-title  { font-size: 20px !important; }
           .features-panel-desc   { font-size: 16px !important; }
           .features-panel-left   { padding: 28px 20px !important; }
           .features-panel-right  { height: 220px !important; padding: 16px !important; }

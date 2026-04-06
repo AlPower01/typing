@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Nunito } from 'next/font/google'
 import './globals.css'
 import SiteNav from '@/components/layout/SiteNav'
+import ScrollToTop from '@/components/ScrollToTop'
 
 const nunito = Nunito({
   subsets: ['latin'],
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={nunito.variable}>
       <body style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', fontFamily: "'Nunito', sans-serif" }}>
+        <ScrollToTop />
         <SiteNav />
         <main style={{ flex: 1 }}>{children}</main>
       </body>

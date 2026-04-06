@@ -29,7 +29,7 @@ export default function SiteFooter({ tagline = 'Typing \u0026 Beyond for Classro
         aria-hidden
         width={560}
         height={400}
-        style={{ position: 'absolute', left: -120, bottom: -80, width: 560, height: 'auto', opacity: 0.5, pointerEvents: 'none', zIndex: 0 }}
+        style={{ position: 'absolute', left: -120, bottom: 0, width: 560, height: 'auto', opacity: 0.5, pointerEvents: 'none', zIndex: 0 }}
       />
       <Image
         src="/images/footer_bottomright.svg"
@@ -37,7 +37,7 @@ export default function SiteFooter({ tagline = 'Typing \u0026 Beyond for Classro
         aria-hidden
         width={600}
         height={400}
-        style={{ position: 'absolute', right: -140, top: -60, width: 600, height: 'auto', opacity: 0.5, pointerEvents: 'none', zIndex: 0 }}
+        style={{ position: 'absolute', right: -140, bottom: 0, width: 600, height: 'auto', opacity: 0.5, pointerEvents: 'none', zIndex: 0 }}
       />
 
       <div style={{ maxWidth: 1368, margin: '0 auto', padding: '0 48px', position: 'relative', zIndex: 1 }} className="footer-wrap">
