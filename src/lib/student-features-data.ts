@@ -23,7 +23,7 @@ export const studentTabs = [
 export const studentPanels: StudentPanel[] = [
   {
     title: 'Structured Lessons & Rich Curriculum',
-    imgSrc: 'images/edu_features_img.png',
+    imgSrc: 'images/typing1.png',
     imgAlt: 'Interactive typing lesson interface',
     accordionItems: [
       {
@@ -46,7 +46,7 @@ export const studentPanels: StudentPanel[] = [
   },
   {
     title: 'Typing Tests & Benchmarking',
-    imgSrc: 'images/edu_features_img.png',
+    imgSrc: 'images/typing1.png',
     imgAlt: 'Typing test results showing WPM and accuracy',
     accordionItems: [
       {
@@ -73,7 +73,7 @@ export const studentPanels: StudentPanel[] = [
   },
   {
     title: 'Adaptive Curriculum with Real-Time Feedback',
-    imgSrc: 'images/edu_features_img.png',
+    imgSrc: 'images/typing1.png',
     imgAlt: 'Adaptive curriculum overview',
     paragraphs: [
       'Adaptive practice lessons appear throughout the curriculum for targeted practice on specific keys or skills where students need the most improvement.',
@@ -82,7 +82,7 @@ export const studentPanels: StudentPanel[] = [
   },
   {
     title: 'Six Engaging Typing Games',
-    imgSrc: 'images/edu_features_img.png',
+    imgSrc: 'images/typing1.png',
     imgAlt: 'Fun typing games interface',
     accordionItems: [
       { label: 'Keyboard Ninja',           text: 'Chop falling letters before they hit the ground. Speed and accuracy matter.' },
@@ -95,7 +95,7 @@ export const studentPanels: StudentPanel[] = [
   },
   {
     title: 'Gamified Learning with Progress Tracking & Achievements',
-    imgSrc: 'images/edu_features_img.png',
+    imgSrc: 'images/typing1.png',
     imgAlt: 'Gamified learning dashboard',
     accordionItems: [
       {
@@ -134,7 +134,7 @@ export const studentPanels: StudentPanel[] = [
   },
   {
     title: 'Epic Unlockable Worlds with Leveling Characters',
-    imgSrc: 'images/edu_features_img.png',
+    imgSrc: 'images/typing1.png',
     imgAlt: 'Unlockable worlds and leveling characters',
     paragraphs: [
       'Students choose from 11 themed worlds including Grow Your Skills, The Flying Foxes, The Princess Adventures, and more. Each world has multiple characters that visually level up as students progress.',
