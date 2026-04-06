@@ -15,7 +15,12 @@ export default function SiteNav() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [isTouch, setIsTouch] = useState(false)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => {
+    setIsTouch(window.matchMedia('(hover: none)').matches)
+  }, [])
 
   useEffect(() => {
     if (isHome) return
@@ -145,13 +150,13 @@ export default function SiteNav() {
               <div
                 className="persona-wrap"
                 style={{ position: 'relative', flexShrink: 0 }}
-                onMouseEnter={() => {
+                onMouseEnter={!isTouch ? () => {
                   if (closeTimer.current) clearTimeout(closeTimer.current)
                   setDropdownOpen(true)
-                }}
-                onMouseLeave={() => {
+                } : undefined}
+                onMouseLeave={!isTouch ? () => {
                   closeTimer.current = setTimeout(() => setDropdownOpen(false), 120)
-                }}
+                } : undefined}
               >
                 <button
                   aria-expanded={dropdownOpen}
